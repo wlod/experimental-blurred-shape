@@ -1,12 +1,15 @@
+/* global BlurShape:true */
+/* exported BlurShape */
+
 const DEFAULT_WIDTH = 300;
 const DEFAULT_HEIGHT = 300;
 const DEFAULT_X = 0;
 const DEFAULT_Y = 0;
 
 const BLUR_SHAPES = {
-    CIRCLE: 'assets/circle.svg',
-    CIRCLE_SMOOTH: 'assets/circle-smooth.svg'
-}
+	CIRCLE       : 'assets/circle.svg',
+	CIRCLE_SMOOTH: 'assets/circle-smooth.svg'
+};
 
 const DEFAULTS = {
 	url: BLUR_SHAPES.CIRCLE,
@@ -28,6 +31,7 @@ function BlurShape (element, options = {}) {
 	this._updatingHTML = null;
 
 	element.style.filter = 'url("#' + this.filterID + '")';
+	element.style.webkitFilter = 'url("#' + this.filterID + '")';
 
 	Object.defineProperty(this, 'x', {
 		get: () => this.options.x,
